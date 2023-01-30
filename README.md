@@ -6,7 +6,7 @@ Pairs well with our [Prettier config](https://www.npmjs.com/package/@rennalabs/p
 
 ## Table of Contents
 
--   [Renna Lab's ESLint Config](#rennalabs-eslint-config)
+-   [Renna Labs' ESLint Config](#rennalabs-eslint-config)
     -   [Table of Contents](#table-of-contents)
     -   [Installation](#installation)
     -   [Configurations](#configurations)
@@ -269,7 +269,7 @@ Read npm's docs on [How to Update a Package](https://docs.npmjs.com/getting-star
 
 ## Enforced Rules
 
-Renna Lab's ESLint config extends `eslint:recommended` which enables rules that report common problems, which are marked with check marks in the large [list of ESLint rules](https://eslint.org/docs/rules/).
+Renna Labs' ESLint config extends `eslint:recommended` which enables rules that report common problems, which are marked with check marks in the large [list of ESLint rules](https://eslint.org/docs/rules/).
 
 The rules listed below are rules we have enabled on top of those enabled by `eslint:recommended`.
 
