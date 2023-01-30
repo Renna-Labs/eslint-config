@@ -66,7 +66,7 @@ Run `npm info "@rennalabs/eslint-config@latest" peerDependencies` to list the pe
 
 We export two ESLint configurations for your usage:
 
-1. [Default (2 space)](#default-config)
+1. [Default](#default-config)
 2. [React](#react-config)
 
 ### Default Config
@@ -536,9 +536,7 @@ fn();
 <details>
   <summary>indent</summary>
 
-This ESLint config defaults to 2 space indentation.
-
-> Why? The general convention within the JavaScript community is 2 spaces, and ESLint is a "pluggable linting utility for JavaScript and JSX". We could debate 2 spaces vs 4 spaces all day long, so that's why we've provided another configuration for 4 spaces.
+This ESLint config defaults to 4 space indentation.
 
 ```js
 // bad
