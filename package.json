@@ -1,0 +1,33 @@
+{
+    "name": "@rennalabs/eslint-config",
+    "version": "1.0.0",
+    "description": "Renna Lab's default ESLint configuration",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Renna-Labs/eslint-config.git"
+    },
+    "keywords": [
+        "eslint",
+        "eslintconfig",
+        "config",
+        "javascript"
+    ],
+    "author": {
+        "name": "Renna-Labs",
+        "email": "tech@rennalabs.xyz",
+        "twitter": "@rennalabs"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Renna-Labs/eslint-config/issues"
+    },
+    "homepage": "https://github.com/Renna-Labs/eslint-config#readme",
+    "peerDependencies": {
+        "@babel/core": "^7.x.x",
+        "@babel/eslint-parser": "^7.x.x",
+        "eslint": "^7.x.x",
+        "eslint-config-prettier": "^8.x.x",
+        "prettier": "^2.x.x"
+    }
+}
