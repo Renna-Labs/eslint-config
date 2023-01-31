@@ -93,7 +93,7 @@ In your `.eslintrc`:
 ```json
 {
   "root": true,
-  "extends": "@upstatement/eslint-config/four-spaces"
+  "extends": "@rennalabs/eslint-config/four-spaces"
 }
 ```
 
