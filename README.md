@@ -6,22 +6,23 @@ Pairs well with our [Prettier config](https://www.npmjs.com/package/@rennalabs/p
 
 ## Table of Contents
 
--   [Renna Labs' ESLint Config](#rennalabs-eslint-config)
-    -   [Table of Contents](#table-of-contents)
-    -   [Installation](#installation)
-    -   [Configurations](#configurations)
-        -   [Default Config](#default-config)
-        -   [React Config](#react-config)
-            -   [Using Create React App?](#using-create-react-app)
-    -   [Specifying Environments](#specifying-environments)
-    -   [Editor Integration & Autoformatting](#editor-integration--autoformatting)
-        -   [VS Code](#vs-code)
-        -   [Sublime Text](#sublime-text)
-        -   [Atom](#atom)
-    -   [Pre-commit Hooks](#pre-commit-hooks)
-    -   [Publishing to npm](#publishing-to-npm)
-    -   [Enforced Rules](#enforced-rules)
-    -   [Overriding Rules](#overriding-rules)
+- [Renna Labs' ESLint Config](#rennalabs-eslint-config)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Configurations](#configurations)
+    - [Default Config](#default-config)
+    - [Four Spaces Config](#four-spaces-config)
+    - [React Config](#react-config)
+      - [Using Create React App?](#using-create-react-app)
+  - [Specifying Environments](#specifying-environments)
+  - [Editor Integration & Autoformatting](#editor-integration--autoformatting)
+    - [VS Code](#vs-code)
+    - [Sublime Text](#sublime-text)
+    - [Atom](#atom)
+  - [Pre-commit Hooks](#pre-commit-hooks)
+  - [Publishing to npm](#publishing-to-npm)
+  - [Enforced Rules](#enforced-rules)
+  - [Overriding Rules](#overriding-rules)
 
 ## Installation
 
@@ -33,41 +34,42 @@ Run `npm info "@rennalabs/eslint-config@latest" peerDependencies` to list the pe
 
 2. Install dependencies
 
-    - **Option 1:** With `npx`
+   - **Option 1:** With `npx`
 
-        ```sh
-        npx install-peerdeps --dev @rennalabs/eslint-config
-        ```
+     ```sh
+     npx install-peerdeps --dev @rennalabs/eslint-config
+     ```
 
-        **Note:** `npx` is a package runner that comes with npm 5.2 and higher that makes installing peer dependencies easier
+     **Note:** `npx` is a package runner that comes with npm 5.2 and higher that makes installing peer dependencies easier
 
-    - **Option 2:** Without `npx`
+   - **Option 2:** Without `npx`
 
-        ```sh
-        npm install --save-dev @rennalabs/eslint-config @babel/core@7.x.x @babel/eslint-parser@7.x.x eslint@7.x.x eslint-config-prettier@8.x.x prettier@2.x.x
+     ```sh
+     npm install --save-dev @rennalabs/eslint-config @babel/core@7.x.x @babel/eslint-parser@7.x.x eslint@7.x.x eslint-config-prettier@8.x.x prettier@2.x.x
 
-        # or
+     # or
 
-        yarn add --dev @rennalabs/eslint-config @babel/core@7.x.x @babel/eslint-parser@7.x.x eslint@7.x.x eslint-config-prettier@8.x.x prettier@2.x.x
-        ```
+     yarn add --dev @rennalabs/eslint-config @babel/core@7.x.x @babel/eslint-parser@7.x.x eslint@7.x.x eslint-config-prettier@8.x.x prettier@2.x.x
+     ```
 
 3. Create an `.eslintrc` file at the root of your project with the following:
 
-    ```json
-    {
-        "root": true,
-        "extends": "@rennalabs"
-    }
-    ```
+   ```json
+   {
+     "root": true,
+     "extends": "@rennalabs"
+   }
+   ```
 
-    Then make sure to [specify your environment](#specifying-environments) based on your project.
+   Then make sure to [specify your environment](#specifying-environments) based on your project.
 
 ## Configurations
 
-We export two ESLint configurations for your usage:
+We export three ESLint configurations for your usage:
 
 1. [Default](#default-config)
-2. [React](#react-config)
+2. [Four Spaces](#four-spaces-config)
+3. [React](#react-config)
 
 ### Default Config
 
@@ -75,8 +77,23 @@ In your `.eslintrc`:
 
 ```json
 {
-    "root": true,
-    "extends": "@rennalabs"
+  "root": true,
+  "extends": "@rennalabs"
+}
+```
+
+> **NOTE:** Make sure to [specify your environment](#specifying-environments) based on your project
+
+### Four Spaces Config
+
+Includes everything in the default config, but replaces the indent rule with 4 spaces instead of 2 spaces.
+
+In your `.eslintrc`:
+
+```json
+{
+  "root": true,
+  "extends": "@upstatement/eslint-config/four-spaces"
 }
 ```
 
@@ -86,9 +103,9 @@ In your `.eslintrc`:
 
 Includes everything in the default config, plus environment specification and react-specific rules with
 
--   [`eslint-plugin-react`](https://github.com/yannickcr/eslint-plugin-react)
--   [`eslint-plugin-jsx-a11y`](https://github.com/evcohen/eslint-plugin-jsx-a11y)
--   [`@babel/preset-react`](https://github.com/babel/babel/tree/master/packages/babel-preset-react)
+- [`eslint-plugin-react`](https://github.com/yannickcr/eslint-plugin-react)
+- [`eslint-plugin-jsx-a11y`](https://github.com/evcohen/eslint-plugin-jsx-a11y)
+- [`@babel/preset-react`](https://github.com/babel/babel/tree/master/packages/babel-preset-react)
 
 ```sh
 npx install-peerdeps --dev @rennalabs/eslint-config \
@@ -99,8 +116,8 @@ npx install-peerdeps --dev @rennalabs/eslint-config \
 
 ```json
 {
-    "root": true,
-    "extends": "@rennalabs/eslint-config/react"
+  "root": true,
+  "extends": "@rennalabs/eslint-config/react"
 }
 ```
 
@@ -108,7 +125,7 @@ npx install-peerdeps --dev @rennalabs/eslint-config \
 
 ```json
 {
-    "presets": ["@babel/preset-react"]
+  "presets": ["@babel/preset-react"]
 }
 ```
 
@@ -120,43 +137,43 @@ It now supports an [experimental method to extend ESLint](https://create-react-a
 
 1. Extend the base config (`react-app`) in your ESLint configuration:
 
-    ```json
-    {
-        "root": true,
-        "extends": ["react-app", "@rennalabs/eslint-config/react"]
-    }
-    ```
+   ```json
+   {
+     "root": true,
+     "extends": ["react-app", "@rennalabs/eslint-config/react"]
+   }
+   ```
 
 2. Add the babel config
 
-    ```json
-    {
-        "presets": ["@babel/preset-react"]
-    }
-    ```
+   ```json
+   {
+     "presets": ["@babel/preset-react"]
+   }
+   ```
 
 3. Set the `EXTEND_ESLINT` environment variable in your `.env` file (for local development) and in your hosting providers environment variables configuration (for remote builds):
 
-    ```json
-    EXTEND_ESLINT=true
-    ```
+   ```json
+   EXTEND_ESLINT=true
+   ```
 
 This will ensure that the same ruleset is enforced for local development and production builds.
 
 ## Specifying Environments
 
-Our default configs purposefully do not specify a certain environment as to not make any assumptions about your project. The only environment we do specify by default is `es6`. [View all available environments](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments)
+Our configs purposefully do not specify a certain environment as to not make any assumptions about your project. The only environment we do specify by default is `es6`. [View all available environments](https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments)
 
 Therefore, you should specify your project's environment yourself in your ESLint config. For example:
 
 ```json
 {
-    "root": true,
-    "extends": "@rennalabs",
-    "env": {
-        "browser": true,
-        "node": true
-    }
+  "root": true,
+  "extends": "@rennalabs",
+  "env": {
+    "browser": true,
+    "node": true
+  }
 }
 ```
 
@@ -170,23 +187,23 @@ Once you've installed the config, you probably want your editor to lint and fix 
 2. Reload the editor
 3. Open your [settings JSON file](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations) and add the following
 
-    ```json
-    // Format on save with Prettier rules
-    "editor.formatOnSave": true,
-    // Tell the ESLint plugin to run on save
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    // Turn off Prettier format on save, use ESLint to format instead
-    "[javascript]": {
-      "editor.formatOnSave": false
-    },
-    "eslint.alwaysShowStatus": true,
-    // An array of language identifiers specify the files to be validated
-    "eslint.options": {
-      "extensions": [".html", ".js", ".jsx"]
-    },
-    ```
+   ```json
+   // Format on save with Prettier rules
+   "editor.formatOnSave": true,
+   // Tell the ESLint plugin to run on save
+   "editor.codeActionsOnSave": {
+     "source.fixAll.eslint": true
+   },
+   // Turn off Prettier format on save, use ESLint to format instead
+   "[javascript]": {
+     "editor.formatOnSave": false
+   },
+   "eslint.alwaysShowStatus": true,
+   // An array of language identifiers specify the files to be validated
+   "eslint.options": {
+     "extensions": [".html", ".js", ".jsx"]
+   },
+   ```
 
 ### Sublime Text
 
@@ -208,44 +225,44 @@ As another line of defense, if you want ESLint & Prettier to automatically fix y
 
 2. Make sure your `npm` version is >= 7.0.0
 
-    ```shell
-    npm install -g npm@latest
-    ```
+   ```shell
+   npm install -g npm@latest
+   ```
 
 3. Make sure your repo has been initialized with git
 
-    ```shell
-    git init --initial-branch=main
-    ```
+   ```shell
+   git init --initial-branch=main
+   ```
 
 4. Install the npm packages
 
-    ```shell
-    npm install --save-dev lint-staged husky
-    ```
+   ```shell
+   npm install --save-dev lint-staged husky
+   ```
 
 5. Set up the `package.json` stuff
 
-    ```shell
-    npm set-script prepare "husky install" && npm run prepare \
-      && npm set-script lint-staged "lint-staged" \
-      && npx husky add .husky/pre-commit "npm run lint-staged"
-    ```
+   ```shell
+   npm set-script prepare "husky install" && npm run prepare \
+     && npm set-script lint-staged "lint-staged" \
+     && npx husky add .husky/pre-commit "npm run lint-staged"
+   ```
 
 6. Then in your `package.json` add
 
-    ```json
-     "lint-staged": {
-       "*.{js,css,json,md}": [
-         "prettier --write",
-         "git add"
-       ],
-       "*.js": [
-         "eslint --fix",
-         "git add"
-       ]
-     }
-    ```
+   ```json
+    "lint-staged": {
+      "*.{js,css,json,md}": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ]
+    }
+   ```
 
 ## Publishing to npm
 
@@ -255,11 +272,11 @@ Read npm's docs on [How to Update a Package](https://docs.npmjs.com/getting-star
 
 2. Run the release script to bump the version numbers (the script will create a commit and push up the release branch to GitHub for you)
 
-    ```shell
-    ./scripts/release
-    ```
+   ```shell
+   ./scripts/release
+   ```
 
-    Use [semantic versioning](https://docs.npmjs.com/about-semantic-versioning/) to choose the appropriate version number.
+   Use [semantic versioning](https://docs.npmjs.com/about-semantic-versioning/) to choose the appropriate version number.
 
 3. Submit and merge a PR from the release branch into `main`
 
@@ -303,18 +320,18 @@ Always use curly braces.
 if (foo) foo++;
 
 if (foo) {
-    baz();
+  baz();
 } else qux();
 
 // good
 if (foo) {
-    foo++;
+  foo++;
 }
 
 if (foo) {
-    baz();
+  baz();
 } else {
-    qux();
+  qux();
 }
 ```
 
@@ -327,9 +344,9 @@ Use `===` and `!==` over `==` and `!=`.
 
 > Why? It's considered good practice to use the type-safe equality operators `===` and `!==` instead of their regular counterparts `==` and `!=`. The reason for this is that `==` and `!=` do type coercion which follows the rather obscure Abstract Equality Comparison Algorithm. For instance, the following statements are all considered true:
 >
-> -   [] == false
-> -   [] == ![]
-> -   3 == 03
+> - [] == false
+> - [] == ![]
+> - 3 == 03
 
 TL;DR JavaScript is _**WILD**_
 
@@ -361,20 +378,20 @@ Don't write `null` comparisons without type-checking operators.
 ```js
 // bad
 if (foo == null) {
-    bar();
+  bar();
 }
 
 while (qux != null) {
-    baz();
+  baz();
 }
 
 // good
 if (foo === null) {
-    bar();
+  bar();
 }
 
 while (qux !== null) {
-    baz();
+  baz();
 }
 ```
 
@@ -415,16 +432,16 @@ Be consistent with brace style for blocks. Keep `else` on the same line as the p
 ```js
 // bad
 if (foo) {
-    bar();
+  bar();
 } else {
-    baz();
+  baz();
 }
 
 // good
 if (foo) {
-    bar();
+  bar();
 } else {
-    baz();
+  baz();
 }
 ```
 
@@ -440,16 +457,16 @@ Use trailing commas when possible.
 ```js
 // bad
 const foo = {
-    bar: baz,
-    qux: quux,
+  bar: baz,
+  qux: quux,
 };
 
 const arr = [1, 2];
 
 // good
 const foo = {
-    bar: baz,
-    qux: quux,
+  bar: baz,
+  qux: quux,
 };
 
 const arr = [1, 2];
@@ -465,14 +482,14 @@ Put spaces after commas. Don't put spaces before commas.
 ```js
 // bad
 const foo = 1,
-    bar = 2;
+  bar = 2;
 const arr = [1, 2];
 const obj = { foo: bar, baz: qur };
 foo(a, b);
 
 // good
 const foo = 1,
-    bar = 2;
+  bar = 2;
 const arr = [1, 2];
 const obj = { foo: bar, baz: qur };
 foo(a, b);
@@ -488,31 +505,31 @@ Commas should come after and on the same line as an array element, object proper
 ```js
 // bad
 const foo = 1,
-    bar = 2;
+  bar = 2;
 
 const foo = 1,
-    bar = 2;
+  bar = 2;
 
 const foo = ["apples", "oranges"];
 
 function bar() {
-    return {
-        a: 1,
-        b: 2,
-    };
+  return {
+    a: 1,
+    b: 2,
+  };
 }
 
 // good
 const foo = 1,
-    bar = 2;
+  bar = 2;
 
 const foo = ["apples", "oranges"];
 
 function bar() {
-    return {
-        a: 1,
-        b: 2,
-    };
+  return {
+    a: 1,
+    b: 2,
+  };
 }
 ```
 
@@ -541,18 +558,18 @@ This ESLint config defaults to 4 space indentation.
 ```js
 // bad
 if (a) {
-    b = c;
-    function foo(d) {
-        e = f;
-    }
+  b = c;
+  function foo(d) {
+    e = f;
+  }
 }
 
 // good
 if (a) {
-    b = c;
-    function foo(d) {
-        e = f;
-    }
+  b = c;
+  function foo(d) {
+    e = f;
+  }
 }
 ```
 
@@ -582,20 +599,20 @@ Use consistent spacing before and after keywords. Use at least one space before 
 ```js
 // bad
 if (foo) {
-    //...
+  //...
 } else if (bar) {
-    //...
+  //...
 } else {
-    //...
+  //...
 }
 
 // good
 if (foo) {
-    //...
+  //...
 } else if (bar) {
-    //...
+  //...
 } else {
-    //...
+  //...
 }
 ```
 
@@ -618,7 +635,7 @@ import { foo } from "bar";
 const obj = {};
 const obj = { foo: "bar" };
 const obj = {
-    foo: "bar",
+  foo: "bar",
 };
 const { x } = y;
 import { foo } from "bar";
@@ -636,17 +653,17 @@ Use multiple constiable declarations per scope.
 ```js
 // bad
 function foo() {
-    let bar, baz;
-    const bar = true,
-        baz = false;
+  let bar, baz;
+  const bar = true,
+    baz = false;
 }
 
 // good
 function foo() {
-    let bar;
-    let baz;
-    const bar = true;
-    const baz = false;
+  let bar;
+  let baz;
+  const bar = true;
+  const baz = false;
 }
 ```
 
@@ -682,7 +699,7 @@ const name = "ESLint";
 let object = {};
 
 object.method = function () {
-    // ...
+  // ...
 };
 
 // good
@@ -690,7 +707,7 @@ const name = "ESLint";
 let object = {};
 
 object.method = function () {
-    // ...
+  // ...
 };
 ```
 
@@ -704,20 +721,20 @@ Don't put a space before the `(` of arguments.
 ```js
 // bad
 function foo() {
-    // ...
+  // ...
 }
 
 const bar = function () {
-    // ...
+  // ...
 };
 
 // good
 function foo() {
-    // ...
+  // ...
 }
 
 const bar = function () {
-    // ...
+  // ...
 };
 ```
 
@@ -756,28 +773,28 @@ Disallow the use of braces around arrow function body as needed. One-liners can 
 ```js
 // bad
 let foo = () => {
-    return 0;
+  return 0;
 };
 let foo = () => {
-    return {
-        bar: {
-            foo: 1,
-            bar: 2,
-        },
-    };
+  return {
+    bar: {
+      foo: 1,
+      bar: 2,
+    },
+  };
 };
 
 // good
 let foo = () => 0;
 let foo = (retv, name) => {
-    retv[name] = true;
-    return retv;
+  retv[name] = true;
+  return retv;
 };
 let foo = () => ({
-    bar: {
-        foo: 1,
-        bar: 2,
-    },
+  bar: {
+    foo: 1,
+    bar: 2,
+  },
 });
 ```
 
@@ -793,13 +810,13 @@ Omit parens when there is only one argument. Unnecessary parens make code less r
 (a) => {};
 (a) => a;
 (a) => {
-    "\n";
+  "\n";
 };
 a.then((foo) => {});
 a.then((foo) => a);
 a((foo) => {
-    if (true) {
-    }
+  if (true) {
+  }
 });
 
 // good
@@ -807,7 +824,7 @@ a((foo) => {
 (a) => {};
 (a) => a;
 () => {
-    "\n";
+  "\n";
 };
 ```
 
@@ -830,7 +847,7 @@ Put spaces before and after an arrow function’s arrow.
 (a) => {};
 (a) => a;
 () => {
-    "\n";
+  "\n";
 };
 ```
 
@@ -862,27 +879,27 @@ Don't include useless class constructors that can be safely removed without chan
 ```js
 // bad
 class A {
-    constructor() {}
+  constructor() {}
 }
 
 class A extends B {
-    constructor(...args) {
-        super(...args);
-    }
+  constructor(...args) {
+    super(...args);
+  }
 }
 
 // good
 
 class A {
-    constructor() {
-        doSomething();
-    }
+  constructor() {
+    doSomething();
+  }
 }
 
 class A extends B {
-    constructor() {
-        super("foo");
-    }
+  constructor() {
+    super("foo");
+  }
 }
 ```
 
@@ -937,7 +954,7 @@ console.log(a);
 // it's initialized in a different block from the declaration.
 let a;
 if (true) {
-    a = 0;
+  a = 0;
 }
 console.log(a);
 ```
@@ -968,10 +985,10 @@ If you'd like to override any rules, you can add the rules to your `.eslintrc` f
 
 ```json
 {
-    "root": true,
-    "extends": "@rennalabs",
-    "rules": {
-        "no-console": "off"
-    }
+  "root": true,
+  "extends": "@rennalabs",
+  "rules": {
+    "no-console": "off"
+  }
 }
 ```
